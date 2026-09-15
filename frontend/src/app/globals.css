@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Fraunces", serif;
+  --font-body: "Manrope", sans-serif;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3A2F24 #17120D;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #17120D;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #3A2F24;
+  border-radius: 8px;
+  border: 2px solid #17120D;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #17120D;
+  color: #EDE6D6;
+  font-family: var(--font-body);
+}
+
+::selection {
+  background-color: #C89B3C;
+  color: #17120D;
+}
+
+:focus-visible {
+  outline: 2px solid #C89B3C;
+  outline-offset: 2px;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* A hairline rule used in place of card shadows/borders everywhere */
+  .hairline {
+    position: relative;
+  }
+  .hairline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(200, 155, 60, 0.5), rgba(200, 155, 60, 0));
+  }
+
+  /* Manifest code: functional identifier styling, not decorative numbering */
+  .manifest-code {
+    font-family: var(--font-body);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    color: #A79A85;
+  }
+
+  .grain {
+    background-image: radial-gradient(rgba(237, 230, 214, 0.035) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
